@@ -1,6 +1,6 @@
 # a-Forum-in-Laravel
 
-使用 Laravel 5.5.28 构建的论坛系统
+使用 Laravel 5.5 构建的论坛系统
 
 ## 安装说明：
 
