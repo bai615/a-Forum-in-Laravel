@@ -1,0 +1,36 @@
+
+php artisan migrate
+
+php artisan cache:clear
+
+php artisan config:clear
+
+php artisan make:model Thread -mr
+注：该命令生成控制器时，应修改为复数形式，如 app\Http\Controllers\ThreadsController.php
+
+php artisan make:model Reply -mr
+
+可以分开生成（同样的效果），如下
+php artisan make:model Thread -m
+php artisan make:controller ThreadsController --resource --model=Post
+
+php artisan make:factory ThreadFactory
+php artisan make:factory ReplyFactory
+
+
+/**
+进入tinker环境：
+php artisan tinker
+依次执行以下语句，填充假数据：
+>>> factory('App\Thread',50)->create()
+>>> $threads = factory('App\Thread',50)->create()
+>>> $threads->each(function ($thread){ factory('App\Reply',10)->create(['thread_id' => $thread->id]);});
+* 貌似不好使
+*/
+
+php artisan make:seeder UsersTableSeeder
+
+php artisan make:seeder ThreadsTableSeeder
+
+composer dump-autoload
+
