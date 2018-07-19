@@ -45,6 +45,7 @@ class RepliesController extends Controller
 
     /**
      * @param Thread $thread
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(Thread $thread)
     {
@@ -52,6 +53,7 @@ class RepliesController extends Controller
             'body' => request('body'),
             'user_id' => auth()->id(),
         ]);
+        return redirect($thread->path());
     }
 
     /**
