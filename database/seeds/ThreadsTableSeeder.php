@@ -11,6 +11,11 @@ class ThreadsTableSeeder extends Seeder
      */
     public function run()
     {
+        \App\Reply::truncate();
+        \App\Thread::truncate();
+        \App\User::truncate();
+        \App\Channel::truncate();
+
         //
         factory(App\Thread::class, 50)->create()->each(function($thread) {
             factory('App\Reply',10)->create(['thread_id' => $thread->id]);

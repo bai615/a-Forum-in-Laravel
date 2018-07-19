@@ -30,7 +30,9 @@ Route::get('/threads/{thread}/edit', 'threadsController@edit')->name('threads.ed
 Route::patch('/threads/{thread}', 'threadsController@update')->name('threads.update');
 Route::delete('/threads/{thread}', 'threadsController@destroy')->name('threads.destroy');
  */
-Route::post('/threads/{thread}/replies','RepliesController@store');
+
+Route::post('/threads/{channel}/{thread}/replies','RepliesController@store');
+//Route::post('/threads/{thread}/replies','RepliesController@store');
 
 Auth::routes();
 

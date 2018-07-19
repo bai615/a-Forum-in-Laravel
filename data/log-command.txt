@@ -43,3 +43,19 @@ composer require caouecs/laravel-lang:~3.0
 https://github.com/caouecs/Laravel-lang
 
 php artisan make:test ThreadsTest
+
+
+php artisan make:model Channel -m
+
+php artisan make:factory ChannelFactory
+
+php artisan make:migration add_channel_to_threads_table --table=threads
+
+// php artisan migrate:refresh
+php artisan migrate
+
+
+
+Share.js
+一键分享到微博、QQ空间、QQ好友、微信、腾讯微博、豆瓣、Facebook、Twitter、Linkedin、Google+、点点等社交网站。
+npm install social-share.js
