@@ -33,4 +33,13 @@ php artisan make:seeder UsersTableSeeder
 php artisan make:seeder ThreadsTableSeeder
 
 composer dump-autoload
+php artisan db:seed
 
+php artisan key:generate
+
+php artisan make:auth
+
+composer require caouecs/laravel-lang:~3.0
+https://github.com/caouecs/Laravel-lang
+
+php artisan make:test ThreadsTest
