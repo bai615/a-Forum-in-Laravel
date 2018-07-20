@@ -55,6 +55,9 @@ php artisan make:migration add_channel_to_threads_table --table=threads
 php artisan migrate
 
 
+php artisan make:controller BlockchainControlle
+
+
 
 Share.js
 一键分享到微博、QQ空间、QQ好友、微信、腾讯微博、豆瓣、Facebook、Twitter、Linkedin、Google+、点点等社交网站。

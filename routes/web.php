@@ -38,3 +38,5 @@ Route::post('/threads/{channel}/{thread}/replies','RepliesController@store');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('blockchain','BlockchainController@index');
