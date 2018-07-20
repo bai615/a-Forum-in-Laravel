@@ -65,6 +65,8 @@ php artisan migrate
 
 php artisan make:model Favorite
 
+composer require barryvdh/laravel-debugbar:~2.4
+
 
 
 Share.js

@@ -24,8 +24,8 @@ class AppServiceProvider extends ServiceProvider
 
         // 在视图中共享数据
 //        \View::share('channels',\App\Channel::all());
-        \View::composer('*',function($view){
-            $view->with('channels',Channel::all());
+        \View::composer('*', function ($view) {
+            $view->with('channels', Channel::all());
         });
     }
 
@@ -36,6 +36,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // 安装 Laravel 开发者工具类 - laravel-debugbar。
+        if ($this->app->isLocal()) {
+            $this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);
+        }
     }
 }
