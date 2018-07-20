@@ -22,7 +22,7 @@ class Thread extends Model
 
     public function creator()
     {
-        return $this->belongsTo(User::class,'user_id');  // 使用 user_id 字段进行模型关联
+        return $this->belongsTo(User::class, 'user_id');  // 使用 user_id 字段进行模型关联
     }
 
     public function addReply($reply)
@@ -33,5 +33,10 @@ class Thread extends Model
     public function channel()
     {
         return $this->belongsTo(Channel::class);
+    }
+
+    public function scopeFilter($query, $filters)
+    {
+        return $filters->apply($query);
     }
 }
