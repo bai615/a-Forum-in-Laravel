@@ -15,9 +15,11 @@
                     </div>
                 </div>
 
-                @foreach($thread->replies as $reply)
+                @foreach($replies as $reply)
                     @include('threads.reply')
                 @endforeach
+
+                {{ $replies->links() }}
 
                 @if (auth()->check())  <!-- 已登录用户才可见 -->
                     <form method="post" action="{{ $thread->path() . '/replies' }}">
