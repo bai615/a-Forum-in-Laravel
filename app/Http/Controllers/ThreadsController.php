@@ -53,6 +53,9 @@ class ThreadsController extends Controller
             $threads->where('channel_id', $channel->id);
         }
 
+        dd($threads->toSql());
+        // select `threads`.*, (select count(*) from `replies` where `threads`.`id` = `replies`.`thread_id`) as `replies_count` from `threads` order by `created_at` desc, `replies_count` desc
+
         return $threads->get();
     }
 
