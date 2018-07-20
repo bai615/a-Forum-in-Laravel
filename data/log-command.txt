@@ -57,6 +57,14 @@ php artisan migrate
 
 php artisan make:controller BlockchainControlle
 
+php artisan make:controller FavoritesController
+
+php artisan make:migration create_favorites_table --create=favorites
+
+php artisan migrate
+
+php artisan make:model Favorite
+
 
 
 Share.js

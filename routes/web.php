@@ -27,6 +27,8 @@ Route::get('threads/{channel}','ThreadsController@index');
 Route::post('/threads/{channel}/{thread}/replies','RepliesController@store');
 //Route::post('/threads/{thread}/replies','RepliesController@store');
 
+Route::post('/replies/{reply}/favorites','FavoritesController@store');
+
 // Route::resource('threads','ThreadsController');
 /**
  * 上面资源路由等价于以下路由
