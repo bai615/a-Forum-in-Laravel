@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class ThreadsFilters
 {
     protected $request;
+    protected $builder;
 
     public function __construct(Request $request)
     {
@@ -15,10 +16,19 @@ class ThreadsFilters
 
     public function apply($builder)
     {
+        $this->builder = $builder;
+
         if (!$username = $this->request->by) {
             return $builder;
         }
+
+        return $this->by($username);
+
+    }
+
+    public function by($username)
+    {
         $user = User::where('name', $username)->firstOrFail();
-        return $builder->where('user_id', $user->id);
+        return $this->builder->where('user_id', $user->id);
     }
 }
