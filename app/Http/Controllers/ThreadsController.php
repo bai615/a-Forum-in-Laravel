@@ -38,17 +38,22 @@ class ThreadsController extends Controller
      * @param ThreadsFilters $filters
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(Channel $channel,ThreadsFilters $filters)
+    public function index(Channel $channel, ThreadsFilters $filters)
+    {
+        $threads = $this->getThreads($channel, $filters);
+
+        return view('threads.index', compact('threads'));
+    }
+
+    protected function getThreads(Channel $channel, ThreadsFilters $filters)
     {
         $threads = Thread::latest()->filter($filters);
 
-        if($channel->exists){
-            $threads-> where('channel_id',$channel->id);
+        if ($channel->exists) {
+            $threads->where('channel_id', $channel->id);
         }
 
-        $threads = $threads->get();
-
-        return view('threads.index', compact('threads'));
+        return $threads->get();
     }
 
     /**
