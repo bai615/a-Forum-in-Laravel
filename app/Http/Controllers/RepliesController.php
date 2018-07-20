@@ -44,10 +44,11 @@ class RepliesController extends Controller
     }*/
 
     /**
+     * @param $channelId
      * @param Thread $thread
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Thread $thread)
+    public function store($channelId, Thread $thread)
     {
         $thread->addReply([
             'body' => request('body'),

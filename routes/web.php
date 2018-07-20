@@ -19,6 +19,11 @@ Route::get('/', function () {
 //Route::post('/threads','ThreadsController@store');
 //Route::get('/threads/{thread}','ThreadsController@show');
 
+Route::get('threads/{channel}','ThreadsController@index');
+Route::get('/threads/{channel}/{thread}','ThreadsController@show');
+Route::post('/threads/{channel}/{thread}/replies','RepliesController@store');
+//Route::post('/threads/{thread}/replies','RepliesController@store');
+
 Route::resource('threads','ThreadsController');
 /**
  * 上面资源路由等价于以下路由
@@ -30,10 +35,6 @@ Route::get('/threads/{thread}/edit', 'threadsController@edit')->name('threads.ed
 Route::patch('/threads/{thread}', 'threadsController@update')->name('threads.update');
 Route::delete('/threads/{thread}', 'threadsController@destroy')->name('threads.destroy');
  */
-
-Route::get('/threads/{channel}/{thread}','ThreadsController@show');
-Route::post('/threads/{channel}/{thread}/replies','RepliesController@store');
-//Route::post('/threads/{thread}/replies','RepliesController@store');
 
 Auth::routes();
 
