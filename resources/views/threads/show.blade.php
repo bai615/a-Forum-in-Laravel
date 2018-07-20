@@ -38,7 +38,7 @@
                     <div class="panel-body">
                         <p>
                             <a href="#">{{ $thread->creator->name }}</a> 发布于 {{ $thread->created_at->diffForHumans() }}，
-                            当前共有 {{ $thread->replies()->count() }} 个回复。
+                            当前共有 {{ $thread->replies_count }} 个回复。
                         </p>
                     </div>
                 </div>
