@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Channel;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
@@ -22,7 +23,10 @@ class AppServiceProvider extends ServiceProvider
         Carbon::setLocale('zh');
 
         // 在视图中共享数据
-        \View::share('channels',\App\Channel::all());
+//        \View::share('channels',\App\Channel::all());
+        \View::composer('*',function($view){
+            $view->with('channels',Channel::all());
+        });
     }
 
     /**
