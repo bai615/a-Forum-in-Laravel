@@ -38,6 +38,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="/threads">All Threads</a></li>
                         <li><a href="/threads/create">New Thread</a></li>
+                        <li><a href="/blockchain">Block Chain</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
