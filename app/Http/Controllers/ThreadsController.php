@@ -40,13 +40,13 @@ class ThreadsController extends Controller
      */
     public function index(Channel $channel,ThreadsFilters $filters)
     {
-        if ($channel->exists) {
-            $threads = $channel->threads()->latest();
-        } else {
-            $threads = Thread::latest();
+        $threads = Thread::latest()->filter($filters);
+
+        if($channel->exists){
+            $threads-> where('channel_id',$channel->id);
         }
 
-        $threads = $threads->filter($filters)->get();
+        $threads = $threads->get();
 
         return view('threads.index', compact('threads'));
     }
