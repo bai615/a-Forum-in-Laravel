@@ -19,12 +19,15 @@ Route::get('/', function () {
 //Route::post('/threads','ThreadsController@store');
 //Route::get('/threads/{thread}','ThreadsController@show');
 
-Route::get('threads/{channel}','ThreadsController@index');
+Route::get('/threads', 'threadsController@index')->name('threads.index');
+Route::get('/threads/create', 'threadsController@create')->name('threads.create');
 Route::get('/threads/{channel}/{thread}','ThreadsController@show');
+Route::post('/threads', 'threadsController@store')->name('threads.store');
+Route::get('threads/{channel}','ThreadsController@index');
 Route::post('/threads/{channel}/{thread}/replies','RepliesController@store');
 //Route::post('/threads/{thread}/replies','RepliesController@store');
 
-Route::resource('threads','ThreadsController');
+// Route::resource('threads','ThreadsController');
 /**
  * 上面资源路由等价于以下路由
 Route::get('/threads', 'threadsController@index')->name('threads.index');

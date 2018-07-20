@@ -20,6 +20,9 @@ class AppServiceProvider extends ServiceProvider
 
         // 时间本地化设置
         Carbon::setLocale('zh');
+
+        // 在视图中共享数据
+        \View::share('channels',\App\Channel::all());
     }
 
     /**
