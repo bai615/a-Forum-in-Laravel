@@ -25,7 +25,12 @@ class AppServiceProvider extends ServiceProvider
         // 在视图中共享数据
 //        \View::share('channels',\App\Channel::all());
         \View::composer('*', function ($view) {
-            $view->with('channels', Channel::all());
+//            $view->with('channels', Channel::all());
+            // 缓存 channels 数据
+            $channels = \Cache::rememberForever('channels', function () {
+                return Channel::all();
+            });
+            $view->with('channels', $channels);
         });
     }
 
