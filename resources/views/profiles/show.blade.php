@@ -16,8 +16,8 @@
                         <div class="panel-heading">
                             <div class="level">
                                 <span class="flex">
-                                    <a href="{{ route('profile', $thread->creator) }}">{{ $thread->creator->name }}</a> 发表于
-                                    {{ $thread->title }}
+                                    <a href="{{ route('profile', $thread->creator) }}">{{ $thread->creator->name }}</a> 发表了
+                                    <a href="{{ $thread->path() }}">{{ $thread->title }}</a>
                                 </span>
 
                                 <span>{{ $thread->created_at->diffForHumans() }}</span>
