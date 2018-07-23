@@ -147,6 +147,12 @@ class ThreadsController extends Controller
     {
         // 删除话题相关回复，也可以使用 deleting 事件删除
 //        $thread->replies()->delete();
+
+        if($thread->user_id != auth()->id()){
+            // 只能删除自己创建的话题
+            return back();
+        }
+
         $thread->delete();
 
         if (request()->wantsJson()) {
