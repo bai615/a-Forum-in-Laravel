@@ -50,5 +50,10 @@ class Thread extends Model
         static::addGlobalScope('replyCount', function ($builder) {
             $builder->withCount('replies');
         });
+
+        // 使用 deleting 事件删除话题相关回复
+        static::deleting(function ($thread) {
+            $thread->replies()->delete();
+        });
     }
 }
