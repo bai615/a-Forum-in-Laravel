@@ -148,9 +148,16 @@ class ThreadsController extends Controller
         // 删除话题相关回复，也可以使用 deleting 事件删除
 //        $thread->replies()->delete();
 
-        if($thread->user_id != auth()->id()){
+        /*if($thread->user_id != auth()->id()){
             // 只能删除自己创建的话题
             return back();
+        }*/
+        if ($thread->user_id != auth()->id()) {
+            /*if (request()->wantsJson()) {
+                return response(['status' => 'Permission Denied'], 405);
+            }*/
+
+            abort(403, 'You do not have permission to do this.');
         }
 
         $thread->delete();
