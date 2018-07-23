@@ -24,6 +24,8 @@
                             <div class="body">{{ $thread->body }}</div>
                         </div>
                     </div>
+                @empty
+                    <p>There are no relevant results at this time.</p>
                 @endforeach
             </div>
         </div>
