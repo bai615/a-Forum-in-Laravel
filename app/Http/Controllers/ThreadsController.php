@@ -152,13 +152,15 @@ class ThreadsController extends Controller
             // 只能删除自己创建的话题
             return back();
         }*/
-        if ($thread->user_id != auth()->id()) {
-            /*if (request()->wantsJson()) {
-                return response(['status' => 'Permission Denied'], 405);
-            }*/
+//        if ($thread->user_id != auth()->id()) {
+//            /*if (request()->wantsJson()) {
+//                return response(['status' => 'Permission Denied'], 405);
+//            }*/
+//
+//            abort(403, 'You do not have permission to do this.');
+//        }
 
-            abort(403, 'You do not have permission to do this.');
-        }
+        $this->authorize('update', $thread);
 
         $thread->delete();
 
